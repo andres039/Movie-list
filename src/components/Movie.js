@@ -5,7 +5,7 @@ const Movie = ({ movie }) => {
   const { toggleFavouriteMovieToUser, user } = useContext(UserContext);
   const imgStyles = { height: "360px", objectFit: "cover" };
 
-  const isFavorite = user.favoriteMovies.includes(movie.id);
+  const isFavorite = user?.favoriteMovies?.includes(movie.id);
 
   return (
     <div className="card">
@@ -17,6 +17,7 @@ const Movie = ({ movie }) => {
       />
       <div className="card-body">
         <h4>{movie.title}</h4>
+        {user?.id &&
         <button
           onClick={() => toggleFavouriteMovieToUser(movie.id)}
           className={`btn ${
@@ -25,6 +26,7 @@ const Movie = ({ movie }) => {
         >
           Favorito
         </button>
+        }
       </div>
     </div>
   );
