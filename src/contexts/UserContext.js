@@ -15,10 +15,14 @@ const UserProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
   };
-  const data = {
+  const toggleFavouriteMovieToUser = movieId => {
+    alert(movieId)
+  }
+    const data = {
     user,
     login,
     logout,
+    toggleFavouriteMovieToUser
   };
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 };
