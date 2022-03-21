@@ -1,14 +1,16 @@
 import React from "react";
+import initialMovies from "./Consts/movies";
 import Movie from "./Movie";
 
 const MovieList = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-4">
-          <Movie/>
-
-        </div>
+        {initialMovies.map((movie) => (
+          <div className="col-md-4" key={movie.id}>
+            <Movie movie={movie}/>
+          </div>
+        ))}
       </div>
     </div>
   );
